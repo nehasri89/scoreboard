@@ -1,6 +1,6 @@
 import React from 'react';
 import { Server } from 'mock-socket';
-import { render, screen, } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import App from './App';
 
 describe('App', () => {

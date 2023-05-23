@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
+import { DateTime } from 'luxon';
 import { capitalizeFirstLetter } from './capitalizeFirstLetter';
 import { MatchUpdate, MatchEventTypes, ResultType } from '../types';
+
 const payLoad = {
   cmd: 'start',
   opts: {
@@ -9,6 +11,7 @@ const payLoad = {
 };
 const useWebSocketHook = () => {
   const [message, setMessage] = useState<string>('');
+  const [clock, setClock] = useState<string>();
 
   const [homeSetScore, setHomeSetScore] = useState<number>(0);
   const [awaySetScore, setAwaySetScore] = useState<number>(0);
@@ -32,6 +35,8 @@ const useWebSocketHook = () => {
 
       console.log('1. data?.events?', parsedData.events);
 
+      const luxonDate = DateTime.fromISO(parsedData.clock).toFormat('DDD tttt');
+      setClock(luxonDate);
       if (
         !parsedData.events ||
         (parsedData.events && parsedData.events.length === 0)
@@ -102,9 +107,17 @@ const useWebSocketHook = () => {
 
     //close the connection when app unmounts
     return () => ws.close();
-  }, [message, homePointScore, awayPointScore, homeSetScore, awaySetScore]);
+  }, [
+    message,
+    homePointScore,
+    awayPointScore,
+    homeSetScore,
+    awaySetScore,
+    clock
+  ]);
 
   return {
+    clock,
     message,
     homePointScore,
     awayPointScore,

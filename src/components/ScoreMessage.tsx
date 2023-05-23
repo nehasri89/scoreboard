@@ -11,8 +11,18 @@ const styles = {
   }
 };
 
-const ScoreMessage = ({ message }: { message: string }) => (
-  <div style={styles.message}> Updates: {message}</div>
+const ScoreMessage = ({
+  message,
+  clock
+}: {
+  message: string;
+  clock: string | undefined;
+}) => (
+  <>
+    {clock && <div style={styles.message}> Clock: {clock}</div>}
+
+    <div style={styles.message}> Updates: {message}</div>
+  </>
 );
 
 export default ScoreMessage;

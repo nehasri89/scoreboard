@@ -7,13 +7,13 @@ import useWebSocketHook from './utils/useWebSocketHook';
 
 const App = () => {
   const {
+    clock,
     message,
     homePointScore,
     awayPointScore,
     homeSetScore,
     awaySetScore
   } = useWebSocketHook();
-
   return (
     <ErrorBoundary>
       <div
@@ -24,7 +24,7 @@ const App = () => {
           flexWrap: 'wrap'
         }}
       >
-        <ScoreMessage message={message} />
+        <ScoreMessage message={message} clock={clock} />
         <PointsTable
           homePointScore={homePointScore}
           awayPointScore={awayPointScore}
