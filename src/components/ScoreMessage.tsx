@@ -4,18 +4,11 @@ const commonStyle = {
   alignSelf: 'center',
   borderWidth: 2,
   borderColor: 'black',
-  borderStyle: 'dashed',
+  borderStyle: 'double',
   margin: 20,
   padding: 20
 };
 const styles = {
-  commonStyle: {
-    borderWidth: 2,
-    borderColor: 'black',
-    borderStyle: 'dashed',
-    margin: 20,
-    padding: 20
-  },
   clock: {
     ...commonStyle,
     background: 'grey'
