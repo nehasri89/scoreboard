@@ -1,6 +1,11 @@
-# Getting Started with Create React App
+# Tennis ScoreBoard
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). The app has following features
+
+- `Game clock`
+- `Real time` update messages regarding the game
+- `Real time` Point info
+- `Real time` Set info
 
 ## Project Structure
 
