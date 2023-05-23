@@ -1,24 +1,24 @@
 export enum MatchEventTypes {
-  MatchCalled = "matchCalled",
-  DecidingTeam = "decidingTeam",
-  FirstServe = "firstServe",
-  MatchStarted = "matchStarted",
-  MatchEnded = "matchEnded",
-  PeriodStart = "periodStart",
-  Point = "point",
-  PeriodScore = "periodScore",
+  MatchCalled = 'matchCalled',
+  DecidingTeam = 'decidingTeam',
+  FirstServe = 'firstServe',
+  MatchStarted = 'matchStarted',
+  MatchEnded = 'matchEnded',
+  PeriodStart = 'periodStart',
+  Point = 'point',
+  PeriodScore = 'periodScore'
 }
 
 export enum ResultType {
-  Ace = "ace",
-  DoubleFault = "doubleFault",
-  ReceiverWon = "receiverWon",
-  ServerWon = "serverWon",
+  Ace = 'ace',
+  DoubleFault = 'doubleFault',
+  ReceiverWon = 'receiverWon',
+  ServerWon = 'serverWon'
 }
 
 export enum TeamType {
-  Home = "home",
-  Away = "away",
+  Home = 'home',
+  Away = 'away'
 }
 
 type BaseEvent = {

@@ -1,5 +1,18 @@
-import React from "react";
+import React from 'react';
 
-const ScoreMessage = ({message}:{message: string}) => ( <div style={{alignSelf: 'center', borderWidth: 2, borderColor: 'black', borderStyle: 'dashed', margin: 20, padding:20}}> hellooos{message}</div>)
+const styles = {
+  message: {
+    alignSelf: 'center',
+    borderWidth: 2,
+    borderColor: 'black',
+    borderStyle: 'dashed',
+    margin: 20,
+    padding: 20
+  }
+};
 
-export default ScoreMessage
+const ScoreMessage = ({ message }: { message: string }) => (
+  <div style={styles.message}> Updates: {message}</div>
+);
+
+export default ScoreMessage;
