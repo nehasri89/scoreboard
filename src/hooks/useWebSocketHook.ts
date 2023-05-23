@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { DateTime } from 'luxon';
-import { capitalizeFirstLetter } from './capitalizeFirstLetter';
+import { capitalizeFirstLetter } from '../utils/capitalizeFirstLetter';
 import { MatchUpdate, MatchEventTypes, ResultType } from '../types';
 
 const payLoad = {
@@ -32,9 +32,6 @@ const useWebSocketHook = () => {
     ws.onmessage = ({ data }: { data: string }) => {
       console.log(` Data received from server: ${data}`);
       const parsedData: MatchUpdate = JSON.parse(data);
-
-      console.log('1. data?.events?', parsedData.events);
-
       const luxonDate = DateTime.fromISO(parsedData.clock).toFormat('DDD tttt');
       setClock(luxonDate);
       if (
@@ -44,11 +41,9 @@ const useWebSocketHook = () => {
         return;
 
       parsedData.events.map((event) => {
-        console.log('2. data?.events?', event.type);
-        //format clock and setClock
         switch (event.type) {
           case MatchEventTypes.MatchCalled:
-            setMessage('Match is commencing');
+            setMessage('Match is commencing !');
             break;
           case MatchEventTypes.DecidingTeam:
             setMessage(
@@ -60,7 +55,7 @@ const useWebSocketHook = () => {
               `${capitalizeFirstLetter(event.competitor)} will first serve`
             );
             break;
-          case MatchEventTypes.MatchStarted:
+          case MatchEventTypes.MatchStarted: // reset all the scores
             setHomePointScore(0);
             setAwayPointScore(0);
             setHomeSetScore(0);
@@ -90,14 +85,14 @@ const useWebSocketHook = () => {
             setAwayPointScore(0);
             setHomeSetScore(0);
             setAwaySetScore(0);
-            setMessage(`Start of ${event.periodName} Set`);
+            setMessage(`Start of ${event.periodName} set`);
         }
       });
     };
 
     //add an event listener when error occurs
     ws.onerror = (error) => {
-      console.log('WebSocket Error: ' + error);
+      console.log('WebSocket Error: ' + JSON.stringify(error));
     };
 
     // add an event listener when socket closes.

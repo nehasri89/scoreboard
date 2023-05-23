@@ -3,7 +3,7 @@ import React from 'react';
 import PointsTable from './components/PointsTable';
 import ScoreMessage from './components/ScoreMessage';
 import ErrorBoundary from './components/ErrorBoundary';
-import useWebSocketHook from './utils/useWebSocketHook';
+import useWebSocketHook from './hooks/useWebSocketHook';
 
 const App = () => {
   const {
@@ -21,7 +21,8 @@ const App = () => {
           display: 'flex',
           flexDirection: 'column',
           background: '#aeca22',
-          flexWrap: 'wrap'
+          flexWrap: 'wrap',
+          alignItems: 'center'
         }}
       >
         <ScoreMessage message={message} clock={clock} />

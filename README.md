@@ -2,45 +2,30 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Project Structure
 
-In the project directory, you can run:
+The Project is composed of following folders
 
-### `npm start`
+- `components`: This has the React components
+- `util`: This has the utility functions
+- `hooks`: This has the custom React hook to connect to Websocket and return state variables needed on the screen
+- `types`: This has the types used in the project
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Error Handling
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Websocket connection error is handled by the `onError` event handler
+- React tree rendering error will be caught by `ErrorBoundary` component
 
-### `npm test`
+## Tests
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Tests has been written using `@testing-library/react`
 
-### `npm run build`
+- Tests for the util functions
+- Test for the App [Mocks for websocket can be found at `__mocks__`]
+- Test for the individual component
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Scripts
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Start the app with `npm start`
+- Test the app with `npm run test`
+- Format the code with `npm run format`

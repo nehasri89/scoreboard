@@ -9,13 +9,18 @@ type PointsTableProps = {
 
 const styles = {
   tableContainer: {
-    alignSelf: 'center',
     display: 'flex',
+    justifyContent: 'space-around',
     width: '100%'
   },
   tableContent: {
     alignSelf: 'center',
     flex: 1
+  },
+  text: {
+    fontWeight: 'bold',
+    fontSize: 20,
+    marginLeft: -10
   }
 };
 
@@ -26,13 +31,13 @@ const PointsTable = ({
   awayPointScore
 }: PointsTableProps) => (
   <div style={styles.tableContainer}>
-    <div style={styles.tableContent}>
-      <p>SETS:</p>
+    <div>
+      <p style={styles.text}>Sets:</p>
       <div>{homeSetScore}</div>
       <div>{awaySetScore}</div>
     </div>
-    <div style={styles.tableContent}>
-      <p>Points:</p>
+    <div>
+      <p style={styles.text}>Points:</p>
       <div>{homePointScore}</div>
       <div>{awayPointScore}</div>
     </div>

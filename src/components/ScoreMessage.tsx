@@ -10,7 +10,6 @@ const commonStyle = {
 };
 const styles = {
   commonStyle: {
-    alignSelf: 'center',
     borderWidth: 2,
     borderColor: 'black',
     borderStyle: 'dashed',
